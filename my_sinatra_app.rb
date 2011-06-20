@@ -1,13 +1,7 @@
-require 'compass'
 require 'sinatra'
-set :app_file, __FILE__
 set :root, File.dirname(__FILE__)
-configure do
-  Compass.add_project_configuration(File.join(Sinatra::Application.root, 'config', 'compass.config'))
-end
 class MySinatraApp < Sinatra::Base
   get '/' do
-    #haml :index
     File.read(File.join('public', 'index.html'))
   end
   get "/stylesheets/:name.css" do
